@@ -105,3 +105,30 @@ Fuera del ciclo, inyecta la variable mensaje en el textContent del párrafo.
 Limpia el input. */
 
 let codigosValidos = ["VERANO2026", "PROMO50", "CLIENTEVIP"];
+
+function buscarCodigo(codigo) {
+    let mensaje = "Código inválido o expirado";
+    for (let i = 0; i < codigosValidos.length; i++) {
+        if (codigo == codigosValidos[i]) {
+
+            mensaje = "¡Éxito! Código aceptado"
+            return "¡Éxito! Código aceptado";
+        } else {
+            mensaje = ("Ingresa un Código válido")
+
+        }
+    }
+    return mensaje
+}
+
+function verificarCodigo() {
+    let input = document.getElementById("input4");
+    let codigo = input.value;
+    const result = document.getElementById("resultado4")
+    const container = document.getElementById("resultadoContainer4");
+    let resultado = buscarCodigo(codigo);
+    result.textContent = resultado;
+
+    result.value = "";
+    container.classList.remove("d-none")
+}
