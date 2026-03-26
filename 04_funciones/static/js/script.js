@@ -132,3 +132,72 @@ function verificarCodigo() {
     result.value = "";
     container.classList.remove("d-none")
 }
+
+/* Ejercicio 5: Simulador de Cuotas(for)
+Contexto: Un cliente compra un producto y el sistema le genera automáticamente 
+las etiquetas para sus próximas 3 letras de pago.
+Función Principal: Crea simularCuotas().
+Captura el nombre del producto desde el input(ej: "Bicicleta").
+Crea una variable vacía: registroPagos = "";
+Crea un ciclo for que dé exactamente 3 vueltas(del 1 al 3).
+En cada vuelta, súmale(+=) a registroPagos el producto y el número de
+la cuota(Ej: producto + " - Cuota " + i + " | ").
+Fuera del ciclo, muestra la variable registroPagos en el textContent del párrafo.
+Limpia el input.*/
+
+function calcularCuotas(valor, cuota) {
+    let registroPagos = "";
+    for (let i = 1; i <= 3; i++) {
+        registroPagos += `Cuota ${i} de ${cuota}: ${parseInt(valor / 3)}`;
+    }
+    return registroPagos;
+};
+
+function simularCuotas() {
+    const producto = document.getElementById("input5");
+    let valorProducto = parseInt(producto.value);
+    const cuotaInput = document.getElementById("input5")
+    let cuota = parseInt(cuotaInput.value);
+    const result = document.getElementById("resultado5");
+    const container = document.getElementById("container5")
+    let resultado = calcularCuotas(valorProducto, cuota)
+    result.textContent = resultado;
+    producto.value = "";
+    cuotaInput.value = "";
+    container.classList.remove("d-none");
+}
+
+/*Ejercicio 6: Filtro de Presupuesto (for e if)
+Contexto: Una vitrina virtual tiene varios precios. El cliente ingresa cuánta plata tiene en el bolsillo, y el sistema le muestra solo los precios que le alcanza para pagar.
+Crea un arreglo de precios: let vitrina = [2500, 15000, 8000, 30000, 5000];
+Función Principal: Crea filtrarPrecios().
+Captura el número desde el input (este será el presupuesto del cliente. Recuerda usar Number()).
+Crea una variable opciones = "Te alcanza para los precios: ";
+Recorre el arreglo vitrina con un for.
+Dentro del ciclo, usa un if. Si el precio actual del arreglo es menor o igual (<=) a la plata que ingresó el cliente, súmalo a la variable opciones más un guion (-).
+Muestra el resultado en el textContent del párrafo.
+Limpia el input.
+ */
+
+
+/*Ejercicio 7: Cálculo de Sueldo Líquido (Una función llama a otra)
+Contexto: El usuario ingresa su Sueldo Bruto. Una función matemática oculta descuenta el 20% (AFP y Salud) y le devuelve el dato a la pantalla para mostrar cuánto dinero real recibirá a fin de mes.
+Función Ayudante (La Matemática): Crea una función calcularDescuentos(bruto). Esta función multiplica el bruto por 0.8 y usa return para devolver el resultado.
+Función Principal (La Interfaz): Crea procesarSueldo(). (Esta va en el botón).
+Captura el sueldo desde el input y conviértelo a número.
+Dentro de procesarSueldo, llama a tu función calcularDescuentos() pasándole el número capturado, y guarda lo que te devuelve en una variable llamada sueldoLiquido.
+Modifica el textContent del párrafo: "Tu sueldo a pago es: $" + sueldoLiquido.
+Limpia el input.
+ */
+
+
+/*Ejercicio 8: El Carrito de Compras (Reto Final - Delegación de tareas)
+Contexto: Vamos agregando productos al carrito. Una función anota el producto y le pide ayuda a otra función para que dibuje el carrito actualizado en la pantalla.
+Crea un arreglo vacío: let carrito = [];
+Función Ayudante (La Pantalla): Crea actualizarPantalla(). Esta función tomará el arreglo carrito, lo unirá en un texto (ej: carrito.join(" - ")) y lo inyectará en el textContent del párrafo.
+Función Principal (La Lógica): Crea agregarAlCarrito(). (Esta va en el botón).
+Captura el producto desde el input.
+Si el input no está vacío, usa .push() para agregarlo al carrito.
+¡Limpia el input!
+Al final de esta función, llama a actualizarPantalla() para que la vista se refresque automáticamente con el nuevo producto.
+ */
