@@ -164,7 +164,7 @@ function simularCuotas() {
     result.textContent = resultado;
     producto.value = "";
     cuotaInput.value = "";
-    container.classList.remove("d-none");
+    container.classList.remove("d-none");   
 }
 
 /*Ejercicio 6: Filtro de Presupuesto (for e if)
